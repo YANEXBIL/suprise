@@ -1,0 +1,66 @@
+
+/* CSS Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    padding: 20px;
+    background-image: url('real.png'); /* Add a glowing background image */
+    background-size: cover;
+    background-position: center;
+    /* background-blur: 10px; */
+}
+
+header {
+    margin-bottom: 30px;
+}
+h1 {
+    color: #b10808;
+}
+#quiz {
+    margin-top: 20px;
+}
+#question {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+#answer {
+    width: 80%;
+    padding: 10px;
+    border: 2px solid#b10808;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+button {
+    background-color: #b10808;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #ff4747;
+}
+#music {
+    margin-top: 30px;
+}
+audio {
+    margin-top: 10px;
+}
+#picture-section {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#picture-section img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 20px;
+}
+#picture-section span {
+    font-size: 50px;
+    color: #b10808;
+}

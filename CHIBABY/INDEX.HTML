@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You ❤️</title>
+    <link rel="stylesheet" href="chi.css">
+ 
+</head>
+<body>
+    <!-- HTML Content -->
+    <header>
+        <h1>Hey CHIBABY, This is for You! ❤️</h1>
+    </header>
+
+    <!-- Picture Section with Love Emoji -->
+    <section id="picture-section">
+        <img src="WhatsApp Image 2024-09-23 at 20.01.13_09bc2296.jpg" alt="CHIBABY's Picture"> <!-- Replace with actual file names -->
+        <span>❤️</span>
+        <img src="WhatsApp Image 2024-09-23 at 10.33.58_fef713a9.jpg" alt="My Picture"> <!-- Replace with actual file names -->
+    </section>
+
+    <!-- How Well Do You Know Me Game Section -->
+    <section id="quiz">
+        <h2 style="color:#b10808;">How Well Do You Know Me?</h2>
+        <div id="question" style="font-size: 18px; color: #b10808;"></div>
+        <input type="text" id="answer" placeholder="Type your answer here..." required 
+               style="width: 80%; padding: 10px; border: 2px solid #b10808; border-radius: 5px; margin-bottom: 15px; font-size: 16px; color: #333;">
+        <button onclick="submitAnswer()" style="background-color: #b10808; border: none; padding: 10px 20px; color: white; border-radius: 5px; cursor: pointer;">
+            Next Question
+        </button>
+    </section>
+    
+
+    <!-- Music Section -->
+    <section id="music">
+        <h2>Song for You 🎵</h2>
+        <audio controls>
+            <source src="Ed_Sheeran_-_PerfectAdextunes.com.mp3" type="audio/mp3"> <!-- Replace with your actual song file -->
+            Your browser does not support the audio element.
+        </audio>
+    </section>
+
+    <script>
+        // JavaScript for Interactive Quiz and WhatsApp Message
+        const questions = [
+            { question: "What's my favorite color?" },
+            { question: "What is my name?" },
+            { question: "What am I studying?" },
+            { question: "What is my date of birth?" },
+            { question: "What is my favorite food?" }
+        ];
+
+        let currentQuestion = 0;
+        const answers = [];
+
+        function loadQuestion() {
+            if (currentQuestion < questions.length) {
+                document.getElementById('question').textContent = questions[currentQuestion].question;
+                document.getElementById('answer').value = ''; // Clear the input field
+            } else {
+                // Display a message when all questions are answered
+                document.getElementById('question').textContent = "Thank you for answering, CHIBABY! Click submit to send ❤️";
+                document.querySelector('button').textContent = "Submit Answers";
+                document.querySelector('button').onclick = sendToWhatsApp;
+            }
+        }
+
+        function submitAnswer() {
+            const answer = document.getElementById('answer').value;
+            if (!answer) {
+                alert("Please enter your answer.");
+                return;
+            }
+
+            // Store the answer
+            answers.push(`Q: ${questions[currentQuestion].question}\nA: ${answer}`);
+
+            // Check if all questions are answered
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                loadQuestion();
+            } else {
+                // Change button to "Submit Answers" and prepare for submission
+                loadQuestion();
+            }
+        }
+
+        function sendToWhatsApp() {
+            const phoneNumber = "2349130273282"; // Nigerian country code included
+            const message = `Hey CHIBABY! ❤️ Here are my answers:\n\n${answers.join("\n\n")}`;
+            const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            
+            // Open WhatsApp link in a new tab
+            window.open(whatsappLink, '_blank');
+        }
+
+        // Load the first question on page load
+        window.onload = loadQuestion;
+    </script>
+</body>
+</html>
